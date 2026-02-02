@@ -15,7 +15,7 @@ void uart_rx_handler(void) {
 }
 
 
-// Prueba Git
+// Prueba Git número 2
 int main() {
 
 	uint8_t byte_counter=0;
