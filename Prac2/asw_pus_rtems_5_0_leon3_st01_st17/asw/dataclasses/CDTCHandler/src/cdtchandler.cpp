@@ -85,9 +85,9 @@ void CDTCHandler::ExecPrioTC() {
 
 		//TODO 07 call pus_service17_exec_tc(&mTCHandler);
 
-		//case (  ):
-			//pus_serviceXX_exec_tc(&mTCHandler);
-			//break;
+		case (17):
+			pus_service17_exec_tc(&mTCHandler); // delegar ejecucion
+			break;
 
 		default:
 			//No defined code for this TC. Design error
