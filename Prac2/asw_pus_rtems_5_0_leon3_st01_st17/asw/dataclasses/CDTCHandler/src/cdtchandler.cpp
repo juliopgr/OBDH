@@ -57,9 +57,10 @@ CDTCExecCtrl CDTCHandler::GetExecCtrl() {
 	switch (type) {
 
 	//TODO 05 Set ST[17,X] as prioTC
-	//case (  ):
-		//execCtrl.mExecCtrl = ExecCtrlPrioTC;
-		//break;
+
+	case (17):
+		execCtrl.mExecCtrl = ExecCtrlPrioTC;
+		break;
 
 	default:
 

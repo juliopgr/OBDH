@@ -67,8 +67,10 @@ tc_accept_report_t pus_service1_tc_acceptation(tc_handler_t *ptc_handler) {
 		} else {
 
 			accept_report.accept_status = TCAcceptationOK;
+			//Puntero a Tc es puntero a struct
 		    uint8_t type=ptc_handler->tc_df_header.type;
 		    uint8_t subtype=ptc_handler->tc_df_header.subtype;
+
 			switch (type) {
 			//TODO 03 Add TC[17,1] acceptation
 			case (17):
