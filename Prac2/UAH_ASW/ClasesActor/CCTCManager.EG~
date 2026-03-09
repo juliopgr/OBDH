@@ -189,9 +189,9 @@ true
 Ready
 DSubEst
 FMngTCRejection();
-
  
-
+ 
+ 
 ;
 ;
 ;
@@ -212,9 +212,9 @@ GToReboot()
 Reboot
 DSubEst
 FExecRebootTC();
-
  
-
+ 
+ 
 ;
 ;
 ;
@@ -229,9 +229,9 @@ true
 Ready
 DSubEst
 FExecPrioTC();
-
  
-
+ 
+ 
 ;
 ;
 ;
