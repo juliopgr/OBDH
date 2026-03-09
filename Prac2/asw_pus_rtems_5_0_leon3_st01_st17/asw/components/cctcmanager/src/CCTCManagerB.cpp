@@ -77,6 +77,16 @@ VCurrentTC.ExecPrioTC();
 
 
 
+void	CCTCManager::EDROOM_CTX_Top_0::FExecRebootTC()
+
+{
+
+VCurrentTC.ExecRebootTC();
+
+}
+
+
+
 void	CCTCManager::EDROOM_CTX_Top_0::FGetTC()
 
 {
@@ -174,16 +184,6 @@ return VTCExecCtrl.IsRebootTC();
 
 
 
-void	CCTCManager::EDROOM_CTX_Top_0::FExecRebootTC()
-
-{
-
-VCurrentTC.ExecRebootTC();
-
-}
-
-
-
 	//********************************** Pools *************************************
 
 	//CEDROOMPOOLCDTCHandler
@@ -257,8 +257,8 @@ void CCTCManager::EDROOM_SUB_Top_0::EDROOMBehaviour()
 
 				//Msg->Data Handling 
 				FGetTC();
-				//Evaluate Branch Accepted
-				if( GAcceptTC() )
+				//Default Branch Accepted
+				
 				{
 					//Execute Action 
 					FMngTCAcceptation();
@@ -271,7 +271,7 @@ void CCTCManager::EDROOM_SUB_Top_0::EDROOMBehaviour()
 					edroomNextState = ValidTC;
 				 } 
 				//Default Branch NotAccepted
-				else
+				
 				{
 					//Execute Action 
 					FMngTCRejection();
@@ -432,24 +432,6 @@ TEDROOMTransId CCTCManager::EDROOM_SUB_Top_0::EDROOMReadyArrival()
 	{
 
 		EDROOMNewMessage ();
-
-		switch(Msg->signal)
-		{
-
-			case (EDROOMIRQsignal): 
-
-				 if (*Msg->GetPInterface() == RxTC)
-				{
-
-					//Next transition is  NewRxTC
-					edroomCurrentTrans.localId = NewRxTC;
-					edroomCurrentTrans.distanceToContext = 0 ;
-					edroomValidMsg=true;
-				 }
-
-				break;
-
-		};
 
 		if (false == edroomValidMsg)
 		{
