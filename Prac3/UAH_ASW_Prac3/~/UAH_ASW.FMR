@@ -19,11 +19,11 @@ UAH_ASW
 [CurrentTarget]
 0
 [MESP Directory]
-Z:\home\atcsol\eclipse-workspace\asw_pus_rtems_leon3_st20\asw
+z:\home\atcsol\OBDH_2026-workspace\asw_pus_rtems_5_0_leon3_st01_st17\asw
 [MESP main Directory]
-Z:\home\atcsol\eclipse-workspace\asw_pus_rtems_leon3_st20
+z:\home\atcsol\OBDH_2026-workspace\asw_pus_rtems_5_0_leon3_st01_st17
 [MESP main prototype]
-rtems_task Init (uint32_t arg)
+extern "C" rtems_task Init (uint32_t arg)
 [MESP main return]
 ;
 [Dyn Priority]
@@ -60,7 +60,7 @@ EDROOMTarget
 [Version]
 2
 DUMMY_MESCC_Lib
-2
+3
 [ActorDeployment]
 [Version]
 1
@@ -107,6 +107,34 @@ UAH_ASW
 EvIRQRxTC
 External
 2
+1
+0
+0
+[CEgRoomDeadLine]
+[Version]
+1
+-1
+-1
+0
+0
+[ActorDeployment]
+[Version]
+1
+HK_FDIRMng
+3
+10
+EDROOMprioNormal
+ 
+CCHK_FDIRMng
+UAH_ASW
+[EventsDeployment]
+1
+[EventDeployment]
+[Version]
+1
+EvTimerTimer
+Timer
+0
 1
 0
 0

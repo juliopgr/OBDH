@@ -29,8 +29,8 @@ HK_FDIRTimer
 1
 [Version Grafico Puerto]
 0
-71
-64
+65
+65
 EDROOMTimingSAP
 [FinPuertos]
 [ActoresComponente]
@@ -94,7 +94,7 @@ Ready
 [ObjetoGrafico]
 [Version Objeto Grafico]
 0
-159 251 143 73
+201 198 155 100
 [FinObjetoGrafico]
 [PuntosEleccion]
 0
@@ -125,14 +125,14 @@ true
 [GraficoTransicion]
 [Version GraficoTransicion]
 0
-117 119 174 251 0
+118 119 219 198 0
 [FinGraficoTransicion]
 DoHK_FDIR
 Ready
 OSubEst
 Ready
 DSubEst
-FDoHK_FDIR();
+FDoHK_FDIR()();
 [Trigger]
 HK_FDIRTimer
 EDROOMSignalTimeout
@@ -148,7 +148,7 @@ true
 [GraficoTransicion]
 [Version GraficoTransicion]
 0
-287 324 181 324 5
+339 298 222 298 5
 [FinGraficoTransicion]
 [VariablesConstantes]
 1
@@ -171,12 +171,14 @@ FInitHK_FDIR()
 0
 1
 
-5
+7
+	 
+	
+	time.GetTime(); // Pillas tiempo en valor absoluto
+	time+=Pr_Time(1,0); // Add X sec + Y microsec Sumas un segundo
+	VNextTimeout=time; // Lo haces para guardar para no volver a tomar ref
 
-
-time.GetTime(); // Get current monotonic time
-time+=Pr_Time(1,0); // Add X sec + Y microsec
-VNextTimeout=time; 
+	
 [ServiceRequest]
 InformAt
 HK_FDIRTimer
@@ -184,19 +186,22 @@ EDROOMSignalTimeout
 CDTCMemDescriptor
 EDROOMprioNormal
 Inform
-FDoHK_FDIR()
+FDoHK_FDIR()()
 0
 0
 0
 0
 1
 
-5
-	
-		VNextTimeout+= Pr_Time(1,0); // Add X sec + Y microsec
-		time=VNextTimeout;
-		pus_services_update_params();
-		pus_service3_do_HK();
+8
+
+
+	VNextTimeout+= Pr_Time(1,0); // Add X sec + Y microsec
+	time=VNextTimeout;
+
+	pus_services_update_params();
+	pus_service3_do_HK();
+	HK_FDIRTimer.InformAt(time);
 [ServiceRequest]
 InformAt
 HK_FDIRTimer

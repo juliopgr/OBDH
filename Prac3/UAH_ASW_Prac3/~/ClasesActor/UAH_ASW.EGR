@@ -34,7 +34,7 @@ Timer
 EDROOMTimingSAP
 [FinPuertos]
 [ActoresComponente]
-1
+2
 [Version Actor Componente]
 2
 TCManager
@@ -52,6 +52,23 @@ EDROOMprioHigh
 70.8984
 33.0595
 CCTCManager
+[Version Actor Componente]
+2
+HK_FDIRMng
+1
+0
+0
+10
+7
+EDROOMprioNormal
+
+[Version Grafico Actor Componente]
+0
+22.2656
+58.1109
+44.7266
+81.3142
+CCHK_FDIRMng
 [FinActoresComponente]
 [Uniones]
 0
