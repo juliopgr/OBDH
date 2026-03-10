@@ -71,7 +71,15 @@ EDROOMprioNormal
 CCHK_FDIRMng
 [FinActoresComponente]
 [Uniones]
+1
+[Version Union]
 0
+Union
+1
+HK_FDIRCtrl
+HK_FDIRCtrl
+HK_FDIRMng
+TCManager
 [FinUniones]
 [NumTimers]
 2

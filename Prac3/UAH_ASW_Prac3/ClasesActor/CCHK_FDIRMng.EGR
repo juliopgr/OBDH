@@ -20,7 +20,7 @@ NULL
 1
 [FinStack]
 [Puertos]
-1
+2
 [Version Puerto]
 0
 HK_FDIRTimer
@@ -32,6 +32,17 @@ HK_FDIRTimer
 71
 64
 EDROOMTimingSAP
+[Version Puerto]
+0
+HK_FDIRCtrl
+0
+1
+0
+[Version Grafico Puerto]
+0
+45
+93
+CPHK_FDIRCtrl
 [FinPuertos]
 [ActoresComponente]
 0
@@ -94,14 +105,14 @@ Ready
 [ObjetoGrafico]
 [Version Objeto Grafico]
 0
-159 251 143 73
+159 250 235 130
 [FinObjetoGrafico]
 [PuntosEleccion]
 0
 [Version PuntosEleccion]
 2
 [Transiciones]
-2
+3
 [Version Transicion]
 5
 Init
@@ -125,7 +136,7 @@ true
 [GraficoTransicion]
 [Version GraficoTransicion]
 0
-117 119 174 251 0
+117 119 183 250 0
 [FinGraficoTransicion]
 DoHK_FDIR
 Ready
@@ -148,7 +159,30 @@ true
 [GraficoTransicion]
 [Version GraficoTransicion]
 0
-287 324 181 324 5
+369 380 195 380 5
+[FinGraficoTransicion]
+ExecTC
+Ready
+OSubEst
+Ready
+DSubEst
+;
+[Trigger]
+HK_FDIRCtrl
+SHK_FDIR_TC
+true
+ 
+ 
+ 
+FExecHK_FDIR_TC();
+;
+;
+0
+;
+[GraficoTransicion]
+[Version GraficoTransicion]
+0
+159 364 159 260 6
 [FinGraficoTransicion]
 [VariablesConstantes]
 1
@@ -160,7 +194,7 @@ Pr_Time
 Variable
 0
 [Metodos]
-2
+3
 [Version Metodos]
 21
 Inform
@@ -202,6 +236,25 @@ InformAt
 HK_FDIRTimer
 EDROOMSignalTimeout
 CDTCMemDescriptor
+EDROOMprioNormal
+MsgDataHandler
+FExecHK_FDIR_TC()
+0
+0
+0
+0
+1
+
+4
+	
+		// Data access
+	
+	varSHK_FDIR_TC.ExecHK_FDIRTC()
+[ServiceRequest]
+Msg->data
+HK_FDIRCtrl
+SHK_FDIR_TC
+CDTCHandler
 EDROOMprioNormal
 [MaquinasSubEstados]
 0

@@ -20,7 +20,7 @@ NULL
 4
 [FinStack]
 [Puertos]
-1
+2
 [Version Puerto]
 0
 RxTC
@@ -32,6 +32,17 @@ RxTC
 51
 31
 CPRxTC
+[Version Puerto]
+0
+HK_FDIRCtrl
+1
+1
+0
+[Version Grafico Puerto]
+0
+36
+93
+CPHK_FDIRCtrl
 [FinPuertos]
 [ActoresComponente]
 0
@@ -51,7 +62,12 @@ CPRxTC
 3
 0
 [Pools]
+1
+[Version PoolDatosMens]
 0
+EDROOMPoolCDTCHandler
+CDTCHandler
+10
 [Modulos]
 2
 [Version Modulo]
@@ -65,7 +81,7 @@ v1
 [Version Modulo]
 1
 pus_services_iface
- 
+
 v1
  
 1
@@ -199,7 +215,7 @@ FMngTCRejection();
 HandleTC
 0
 [Ramas]
-2
+3
 [Version Ramas]
 5
 ToReboot
@@ -235,6 +251,23 @@ FExecPrioTC();
 [Version GraficoRama]
 0
 536 334 322 159 3
+[FinGraficoRama]
+FwdHK_FDIRTC
+GFwdToHK_FDIR()
+Ready
+DSubEst
+;
+
+ 
+
+;
+FFwdHK_FDIRTC();
+;
+;
+[GraficoRama]
+[Version GraficoRama]
+0
+538 324 322 239 3
 [FinGraficoRama]
 [Transiciones]
 3
@@ -333,7 +366,7 @@ CDTCExecCtrl
 Variable
 0
 [Metodos]
-10
+12
 [Version Metodos]
 21
 BasicAction
@@ -458,6 +491,36 @@ GToReboot()
  
 1
 return VTCExecCtrl.IsRebootTC();
+Guard
+GFwdToHK_FDIR()
+0
+0
+0
+0
+1
+
+2
+
+return VTCExecCtrl.IsHK_FDIRTC();
+SendMsg
+FFwdHK_FDIRTC()
+0
+0
+0
+0
+1
+
+4
+	
+		// Complete Data 
+	
+	*pSHK_FDIR_TC_Data=VCurrentTC; 
+[ServiceRequest]
+send
+HK_FDIRCtrl
+SHK_FDIR_TC
+CDTCHandler
+EDROOMprioNormal
 [MaquinasSubEstados]
 0
 [FinMaquinasSubEstados]

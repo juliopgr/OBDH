@@ -20,7 +20,7 @@ NULL
 4
 [FinStack]
 [Puertos]
-1
+2
 [Version Puerto]
 0
 RxTC
@@ -32,6 +32,17 @@ RxTC
 51
 31
 CPRxTC
+[Version Puerto]
+0
+HK_FDIRCtrl
+1
+1
+0
+[Version Grafico Puerto]
+0
+36
+93
+CPHK_FDIRCtrl
 [FinPuertos]
 [ActoresComponente]
 0

@@ -53,6 +53,14 @@ EDROOMTimingSAP
 [Pools]
 0
 [Modulos]
+1
+[Version Modulo]
+1
+pus_services_iface
+
+v1
+
+1
 0
 [Eventos]
 1

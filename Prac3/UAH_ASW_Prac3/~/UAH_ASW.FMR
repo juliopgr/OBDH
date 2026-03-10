@@ -132,9 +132,9 @@ UAH_ASW
 [EventDeployment]
 [Version]
 1
-EvTimerTimer
+EvTimerHK_FDIRTimer
 Timer
-0
+3
 1
 0
 0

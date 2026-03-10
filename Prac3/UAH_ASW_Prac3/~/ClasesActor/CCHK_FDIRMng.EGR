@@ -20,10 +20,10 @@ NULL
 1
 [FinStack]
 [Puertos]
-1
+2
 [Version Puerto]
 0
-Timer
+HK_FDIRTimer
 0
 1
 1
@@ -32,6 +32,17 @@ Timer
 71
 64
 EDROOMTimingSAP
+[Version Puerto]
+0
+HK_FDIRCtrl
+0
+1
+0
+[Version Grafico Puerto]
+0
+45
+93
+CPHK_FDIRCtrl
 [FinPuertos]
 [ActoresComponente]
 0
@@ -59,7 +70,7 @@ EDROOMTimingSAP
 [Event]
 [Version]
 1
-EvTimerTimer
+EvTimerHK_FDIRTimer
 Timer
 [Maquina de Estados]
 [Version Maquina de Estados]
@@ -67,7 +78,7 @@ Timer
 Top
 NULL
 [Subestados]
-1
+2
 [Version SubEstados]
 3
 I
@@ -83,20 +94,126 @@ I
 0
 73 73 55 55
 [FinObjetoGrafico]
+Ready
+;
+;
+;
+;
+;
+1
+0
+[ObjetoGrafico]
+[Version Objeto Grafico]
+0
+159 251 143 73
+[FinObjetoGrafico]
 [PuntosEleccion]
 0
 [Version PuntosEleccion]
 2
 [Transiciones]
-0
+2
 [Version Transicion]
 5
+Init
+I
+OSubEstI
+Ready
+DSubEst
+FInitHK_FDIR();
+[Trigger]
+EDROOMsl
+EDROOMStart
+true
+ 
+ 
+ 
+;
+;
+;
+0
+;
+[GraficoTransicion]
+[Version GraficoTransicion]
+0
+117 119 174 251 0
+[FinGraficoTransicion]
+DoHK_FDIR
+Ready
+OSubEst
+Ready
+DSubEst
+FDoHK_FDIR();
+[Trigger]
+HK_FDIRTimer
+EDROOMSignalTimeout
+true
+ 
+ 
+ 
+;
+;
+;
+0
+;
+[GraficoTransicion]
+[Version GraficoTransicion]
+0
+287 324 181 324 5
+[FinGraficoTransicion]
 [VariablesConstantes]
+1
+[Version VariYConst]
+0
+VNextTimeout
+Pr_Time
+
+Variable
 0
 [Metodos]
-0
+2
 [Version Metodos]
 21
+Inform
+FInitHK_FDIR()
+0
+0
+0
+0
+1
+
+5
+
+
+time.GetTime(); // Get current monotonic time
+time+=Pr_Time(1,0); // Add X sec + Y microsec
+VNextTimeout=time; 
+[ServiceRequest]
+InformAt
+HK_FDIRTimer
+EDROOMSignalTimeout
+CDTCMemDescriptor
+EDROOMprioNormal
+Inform
+FDoHK_FDIR()
+0
+0
+0
+0
+1
+
+5
+	
+		VNextTimeout+= Pr_Time(1,0); // Add X sec + Y microsec
+		time=VNextTimeout;
+		pus_services_update_params();
+		pus_service3_do_HK();
+[ServiceRequest]
+InformAt
+HK_FDIRTimer
+EDROOMSignalTimeout
+CDTCMemDescriptor
+EDROOMprioNormal
 [MaquinasSubEstados]
 0
 [FinMaquinasSubEstados]
