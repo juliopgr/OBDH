@@ -70,7 +70,10 @@ tc_accept_report_t pus_service1_tc_acceptation(tc_handler_t *ptc_handler) {
 		    uint8_t type=ptc_handler->tc_df_header.type;
 		    uint8_t subtype=ptc_handler->tc_df_header.subtype;
 			switch (type) {
-			//TODO Add TC[XX,YY] acceptation
+
+
+
+			//TODO Add TC[XX,YY] acceptation   TODO8
 			case (17):
 				switch (subtype) {
 				case (1):
