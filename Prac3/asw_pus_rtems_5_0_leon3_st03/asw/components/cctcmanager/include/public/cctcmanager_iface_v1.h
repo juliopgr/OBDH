@@ -39,6 +39,7 @@ public:
 	 */
 	 enum TEDROOMCCTCManagerSignal { EDROOMSignalTimeout, 
 							EDROOMSignalDestroy, 
+							SHK_FDIR_TC, 
 							EDROOMIRQsignal };
 
 	/**
@@ -88,6 +89,8 @@ public:
 	//******************  Component Communication Ports *******************
 	// ********************************************************************
 
+	//! HK_FDIRCtrl Component Port
+	CEDROOMInterface	HK_FDIRCtrl;
 
 
 	// ********************************************************************
@@ -201,6 +204,7 @@ public:
 	 */
 	enum TEDROOMCCTCManagerSignal { EDROOMSignalTimeout,
 		EDROOMSignalDestroy,
+		SHK_FDIR_TC,
 		EDROOMIRQsignal };
 
 
@@ -216,6 +220,7 @@ public:
 		CEDROOMMessage * &MsgBack;
 
 		//!Component ports
+		CEDROOMInterface & HK_FDIRCtrl;
 		CEDROOMIRQInterface & RxTC;
 
 
@@ -232,6 +237,7 @@ public:
 			NewRxTC_NotAccepted,
 			HandleTC,
 			HandleTC_ToReboot,
+			HandleTC_FwdHK_FDIRTC,
 			HandleTC_ExecPrioTC,
 			EDROOMMemoryTrans };
 
@@ -337,6 +343,16 @@ public:
 		 * \brief  
 		 */
 		bool	GToReboot();
+
+		/**
+		 * \brief 
+		 */
+		bool	GFwdToHK_FDIR();
+
+		/**
+		 * \brief 
+		 */
+		void	FFwdHK_FDIRTC();
 
 	};
 
