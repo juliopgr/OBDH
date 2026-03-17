@@ -65,14 +65,18 @@ void	CCHK_FDIRMng::EDROOM_CTX_Top_0::FDoHK_FDIR()
 {
    //Define absolute time
   Pr_Time time;
+	 
+	//Timing Service useful methods
+	 
+	//time.GetTime(); // Get current monotonic time
+	//time.Add(X,Y); // Add X sec + Y microsec
  
-	
  VNextTimeout+=Pr_Time(1,0);
+ 
  time=VNextTimeout;
  
  pus_services_update_params();
  pus_service3_do_HK();
- 
    //Program absolute timer 
    HK_FDIRTimer.InformAt( time ); 
 }
@@ -98,13 +102,17 @@ void	CCHK_FDIRMng::EDROOM_CTX_Top_0::FInitHK_FDIR()
 {
    //Define absolute time
   Pr_Time time;
- 
- 
 	 
+	//Timing Service useful methods
+	 
+	//time.GetTime(); // Get current monotonic time
+	//time.Add(X,Y); // Add X sec + Y microsec
+ 
+ 
  time.GetTime();
  time+=Pr_Time(1,0);
- VNextTimeout=time;
  
+ VNextTimeout=time;  
    //Program absolute timer 
    HK_FDIRTimer.InformAt( time ); 
 }
@@ -151,17 +159,17 @@ void CCHK_FDIRMng::EDROOM_SUB_Top_0::EDROOMBehaviour()
 		switch(edroomCurrentTrans.localId)
 		{
 
-			//Next Transition is DoHK_FDIR
-			case (DoHK_FDIR):
-				//Execute Action 
-				FDoHK_FDIR();
-				//Next State is Ready
-				edroomNextState = Ready;
-				break;
 			//Next Transition is Init
 			case (Init):
 				//Execute Action 
 				FInitHK_FDIR();
+				//Next State is Ready
+				edroomNextState = Ready;
+				break;
+			//Next Transition is DoHK_FDIR
+			case (DoHK_FDIR):
+				//Execute Action 
+				FDoHK_FDIR();
 				//Next State is Ready
 				edroomNextState = Ready;
 				break;

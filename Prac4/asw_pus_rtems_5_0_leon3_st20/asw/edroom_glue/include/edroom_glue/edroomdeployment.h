@@ -15,6 +15,7 @@
 #include <public/uah_asw_iface_v1.h>
 #include <public/cctcmanager_iface_v1.h>
 #include <public/cchk_fdirmng_iface_v1.h>
+#include <public/ccbkgtcexec_iface_v1.h>
 // ***********************************************************************
 // class CEDROOMSystemMemory
 // ***********************************************************************
@@ -39,11 +40,18 @@ class CEDROOMSystemMemory{
 	CEDROOMQueue::CQueueNode	comp3QueueNodes[13];
 	bool	comp3QueueNodesMarks[13];
  
+	//!Messages Memory of component comp4
+	CEDROOMMessage	comp4Messages[10];
+	bool	comp4MessagesMarks[10];
+	CEDROOMQueue::CQueueNode	comp4QueueNodes[10];
+	bool	comp4QueueNodesMarks[10];
+ 
 	public:
  
 	UAH_ASW::CEDROOMMemory comp1Memory;
 	CCTCManager::CEDROOMMemory comp2Memory;
 	CCHK_FDIRMng::CEDROOMMemory comp3Memory;
+	CCBKGTCExec::CEDROOMMemory comp4Memory;
  
 //!Set Memory
 	void SetMemory();
@@ -59,19 +67,26 @@ class CEDROOMSystemCommSAP{
  
 //!Conections
  
-	CEDROOMLocalConnection connections[1];
+	CEDROOMLocalConnection connections[2];
  
 	UAH_ASW   * mp_comp1;
 	CCTCManager   * mp_comp2;
 	CCHK_FDIRMng   * mp_comp3;
+	CCBKGTCExec   * mp_comp4;
  
  
 //!Set Components
  
 	void SetComponents(UAH_ASW   *p_comp1,
 							CCTCManager   *p_comp2,
-							CCHK_FDIRMng   *p_comp3);
+							CCHK_FDIRMng   *p_comp3,
+							CCBKGTCExec   *p_comp4);
  
+ 
+//Signal Conversion
+ 
+	static TEDROOMSignal C2TCManager_PBKGTCExecCtrl__C4BKGTCExec_PBKGTCExecCtrl(TEDROOMSignal signal);
+	static TEDROOMSignal C4BKGTCExec_PBKGTCExecCtrl__C2TCManager_PBKGTCExecCtrl(TEDROOMSignal signal);
  
 //Signal Conversion
  
@@ -110,6 +125,7 @@ static Pr_TaskRV_t main_task(Pr_TaskP_t);
 	UAH_ASW   * mp_comp1;
 	CCTCManager   * mp_comp2;
 	CCHK_FDIRMng   * mp_comp3;
+	CCBKGTCExec   * mp_comp4;
  
 	public:
  
@@ -118,7 +134,8 @@ static Pr_TaskRV_t main_task(Pr_TaskP_t);
 //!Deployment Configuration
 	void Config(UAH_ASW   *p_comp1,
 					CCTCManager   *p_comp2,
-					CCHK_FDIRMng   *p_comp3);
+					CCHK_FDIRMng   *p_comp3,
+					CCBKGTCExec   *p_comp4);
  
 //!Deployment Start
 	void Start();
@@ -130,6 +147,7 @@ static Pr_TaskRV_t main_task(Pr_TaskP_t);
 	UAH_ASW::CEDROOMMemory 		* GetComp1Memory(){return &systemMemory.comp1Memory;}
 	CCTCManager::CEDROOMMemory 		* GetComp2Memory(){return &systemMemory.comp2Memory;}
 	CCHK_FDIRMng::CEDROOMMemory 		* GetComp3Memory(){return &systemMemory.comp3Memory;}
+	CCBKGTCExec::CEDROOMMemory 		* GetComp4Memory(){return &systemMemory.comp4Memory;}
  
 };
 #endif

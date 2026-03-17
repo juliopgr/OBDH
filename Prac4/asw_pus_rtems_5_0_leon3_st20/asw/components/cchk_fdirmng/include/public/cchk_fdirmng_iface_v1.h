@@ -196,8 +196,8 @@ public:
 			Ready};
 
 		//!Transition Identifiers
-		enum TEDROOMTransitionID{DoHK_FDIR,
-			Init,
+		enum TEDROOMTransitionID{Init,
+			DoHK_FDIR,
 			ExecTC,
 			EDROOMMemoryTrans };
 
