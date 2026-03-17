@@ -14,6 +14,7 @@ RM := rm -rf
 -include service_libraries/pus_services/pus_tc_handler/src/subdir.mk
 -include service_libraries/pus_services/pus_sys_data_pool/src/subdir.mk
 -include service_libraries/pus_services/pus_service17/src/subdir.mk
+-include service_libraries/pus_services/pus_service03/src/subdir.mk
 -include service_libraries/pus_services/pus_service01/src/subdir.mk
 -include service_libraries/emu_tc_programming/src/subdir.mk
 -include service_libraries/edroomsl/edroomsl_types/src/subdir.mk

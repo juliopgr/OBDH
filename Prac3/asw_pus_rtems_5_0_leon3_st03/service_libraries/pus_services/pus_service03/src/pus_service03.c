@@ -77,10 +77,21 @@ void pus_service3_do_HK() {
 	}
 
 }
-//TODO 11 complete pus_service3_exec_tc TC[3,X] execution control
+//TODO 11 complete pus_service3_exec_tc TC[3,X] execution control DONE
 void pus_service3_exec_tc(tc_handler_t *ptc_handler) {
 
 	switch (ptc_handler->tc_df_header.subtype) {
+
+	case (5):
+		pus_service3_exec_TC_3_5(ptc_handler);
+	break;
+	case (6):
+		pus_service3_exec_TC_3_6(ptc_handler);
+	break;
+
+	case (31):
+		pus_service3_exec_TC_3_31(ptc_handler);
+	break;
 
 	default:
 		//No defined code for this TC. ASW design error
