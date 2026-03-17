@@ -64,6 +64,10 @@ CDTCExecCtrl CDTCHandler::GetExecCtrl() {
 		execCtrl.mExecCtrl = ExecCtrlPrioTC;
 		break;
 
+	case (20):
+			execCtrl.mExecCtrl = ExecCtrlBKGTC;
+			break;
+
 	default:
 
 		execCtrl.mExecCtrl = ExecCtrlPrioTC;
@@ -170,6 +174,10 @@ void CDTCHandler::ExecBKGTC() {
 		uint8_t type = mTCHandler.tc_df_header.type;
 
 		switch (type) {
+
+		case (20):
+		pus_service20_exec_tc(&mTCHandler);
+		break;
 
 
 		default:
