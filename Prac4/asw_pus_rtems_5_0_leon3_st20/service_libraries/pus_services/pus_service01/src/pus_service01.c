@@ -81,6 +81,25 @@ tc_accept_report_t pus_service1_tc_acceptation(tc_handler_t *ptc_handler) {
 
 				}
 				break;
+
+				case (20):
+				switch (subtype) {
+				case (1):
+				case (3):
+
+			    	break;
+		     	default:
+		        	accept_report.accept_status = TCAcceptationSubTypeError;
+
+				}
+				break;
+
+
+
+
+
+
+
 			case (17):
 				switch (subtype) {
 				case (1):
