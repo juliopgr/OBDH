@@ -6,7 +6,7 @@
 0
 [Modificado]
 0
-0
+1
 3
 [Estructura]
 [Version Estructura]
@@ -47,44 +47,44 @@ EDROOMprioHigh
  
 [Version Grafico Actor Componente]
 0
-24.4141
-19.5072
-68.9453
-33.8809
+26.3672
+18.6858
+70.8984
+33.0595
 CCTCManager
 [Version Actor Componente]
 2
 HK_FDIRMng
 1
 0
--1
+0
 10
 7
 EDROOMprioNormal
  
 [Version Grafico Actor Componente]
 0
-22.6562
-46.2012
-40.2344
-68.7885
+22.0703
+49.2813
+42.5781
+64.6817
 CCHK_FDIRMng
 [Version Actor Componente]
 2
 BKGTCExec
 1
 0
--1
+0
 10
 7
-EDROOMprioVeryLow
+EDROOMprioNormal
  
 [Version Grafico Actor Componente]
 0
-61.5234
-47.0226
-79.1016
-69.6099
+59.5703
+47.2279
+81.6406
+63.4497
 CCBKGTCExec
 [FinActoresComponente]
 [Uniones]
@@ -95,14 +95,14 @@ Union
 1
 HK_FDIRCtrl
 HK_FDIRCtrl
-TCManager
 HK_FDIRMng
+TCManager
 [Version Union]
 0
 Union2
 1
-BKGTCExecCtrl
-BKGTCExecCtrl
+BKGExecCtrl
+BKGExecCtrl
 TCManager
 BKGTCExec
 [FinUniones]

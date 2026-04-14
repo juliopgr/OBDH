@@ -5,8 +5,8 @@
 0
 0
 [Modificado]
-0
-0
+1
+1
 0
 [Estructura]
 [Version Estructura]
@@ -23,13 +23,13 @@ NULL
 1
 [Version Puerto]
 0
-BKGTCExecCtrl
+BKGExecCtrl
 0
 1
 0
 [Version Grafico Puerto]
 0
-56
+46
 4
 CPBKGExecCtrl
 [FinPuertos]
@@ -51,17 +51,22 @@ CPBKGExecCtrl
 3
 0
 [Pools]
+1
+[Version PoolDatosMens]
 0
+EDROOMPoolCDTMList
+CDTMList
+10
 [Modulos]
 1
 [Version Modulo]
 1
-pus_services_iface
-
+icuasw_pus_services_iface
+ 
 v1
-
+ 
 1
-0
+1
 [Eventos]
 0
 [Maquina de Estados]
@@ -97,7 +102,7 @@ Ready
 [ObjetoGrafico]
 [Version Objeto Grafico]
 0
-235 224 159 99
+227 191 185 172
 [FinObjetoGrafico]
 [PuntosEleccion]
 0
@@ -128,7 +133,7 @@ true
 [GraficoTransicion]
 [Version GraficoTransicion]
 0
-119 117 235 237 0
+121 116 227 221 0
 [FinGraficoTransicion]
 ExecTC
 Ready
@@ -137,7 +142,7 @@ Ready
 DSubEst
 ;
 [Trigger]
-BKGTCExecCtrl
+BKGExecCtrl
 SBKGTC
 true
  
@@ -151,7 +156,7 @@ FExecBKGTC();
 [GraficoTransicion]
 [Version GraficoTransicion]
 0
-384 323 248 323 5
+227 248 227 341 6
 [FinGraficoTransicion]
 [VariablesConstantes]
 0
@@ -167,20 +172,19 @@ FExecBKGTC()
 0
 1
  
-7
+6
+ 
 	
-		// Data access
+varSBKGTC.ExecBKGTC();
+		
 	
- 
- 
-		varSBKGTC.ExecBKGTC();
- 
+   
 [ServiceRequest]
 Msg->data
-BKGTCExecCtrl
+BKGExecCtrl
 SBKGTC
 CDTCHandler
- 
+
 [MaquinasSubEstados]
 0
 [FinMaquinasSubEstados]

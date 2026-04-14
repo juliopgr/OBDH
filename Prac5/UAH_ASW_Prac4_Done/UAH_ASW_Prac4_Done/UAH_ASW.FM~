@@ -19,9 +19,9 @@ UAH_ASW
 [CurrentTarget]
 0
 [MESP Directory]
-C:\Users\julit\OneDrive\Documentos\GitHub\OBDH\Prac4\asw_pus_rtems_5_0_leon3_st20\asw
+z:\home\atcsol\OBDH_2026-workspace\asw_pus_rtems_5_0_leon3_st20_resuelto\asw
 [MESP main Directory]
-C:\Users\julit\OneDrive\Documentos\GitHub\OBDH\Prac4\asw_pus_rtems_5_0_leon3_st20
+z:\home\atcsol\OBDH_2026-workspace\asw_pus_rtems_5_0_leon3_st20_resuelto
 [MESP main prototype]
 extern "C" rtems_task Init (uint32_t arg)
 [MESP main return]
@@ -151,7 +151,7 @@ Timer
 BKGTCExec
 4
 10
-EDROOMprioVeryLow
+EDROOMprioNormal
  
 CCBKGTCExec
 UAH_ASW
