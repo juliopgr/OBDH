@@ -39,7 +39,7 @@
 
 
 
-//TODO 08 complete pus_service20_exec_tc TC[20,X] execution control
+//
 void pus_service20_exec_tc(tc_handler_t *ptc_handler){
 
 	switch (ptc_handler->tc_df_header.subtype) {

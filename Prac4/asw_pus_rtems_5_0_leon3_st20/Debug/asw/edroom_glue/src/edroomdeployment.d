@@ -43,7 +43,8 @@ asw/edroom_glue/src/edroomdeployment.o: \
  /home/atcsol/git/OBDH/Prac4/asw_pus_rtems_5_0_leon3_st20/service_libraries/pus_services/pus_service03/include/public/pus_service03.h \
  /home/atcsol/git/OBDH/Prac4/asw_pus_rtems_5_0_leon3_st20/service_libraries/pus_services/pus_service17/include/public/pus_service17.h \
  /home/atcsol/git/OBDH/Prac4/asw_pus_rtems_5_0_leon3_st20/service_libraries/pus_services/pus_service20/include/public/pus_service20.h \
- /home/atcsol/git/OBDH/Prac4/asw_pus_rtems_5_0_leon3_st20/asw/components/cchk_fdirmng/include/public/cchk_fdirmng_iface_v1.h
+ /home/atcsol/git/OBDH/Prac4/asw_pus_rtems_5_0_leon3_st20/asw/components/cchk_fdirmng/include/public/cchk_fdirmng_iface_v1.h \
+ /home/atcsol/git/OBDH/Prac4/asw_pus_rtems_5_0_leon3_st20/asw/components/ccbkgtcexec/include/public/ccbkgtcexec_iface_v1.h
 /home/atcsol/git/OBDH/Prac4/asw_pus_rtems_5_0_leon3_st20/asw/edroom_glue/include/edroom_glue/edroomdeployment.h:
 /home/atcsol/git/OBDH/Prac4/asw_pus_rtems_5_0_leon3_st20/asw/edroom_glue/include/edroom_glue/edroomdf.h:
 /home/atcsol/git/OBDH/Prac4/asw_pus_rtems_5_0_leon3_st20/service_libraries/edroomsl/edroomsl/include/public/edroomsl_iface_v1.h:
@@ -88,3 +89,4 @@ asw/edroom_glue/src/edroomdeployment.o: \
 /home/atcsol/git/OBDH/Prac4/asw_pus_rtems_5_0_leon3_st20/service_libraries/pus_services/pus_service17/include/public/pus_service17.h:
 /home/atcsol/git/OBDH/Prac4/asw_pus_rtems_5_0_leon3_st20/service_libraries/pus_services/pus_service20/include/public/pus_service20.h:
 /home/atcsol/git/OBDH/Prac4/asw_pus_rtems_5_0_leon3_st20/asw/components/cchk_fdirmng/include/public/cchk_fdirmng_iface_v1.h:
+/home/atcsol/git/OBDH/Prac4/asw_pus_rtems_5_0_leon3_st20/asw/components/ccbkgtcexec/include/public/ccbkgtcexec_iface_v1.h:
