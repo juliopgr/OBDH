@@ -47,7 +47,7 @@ void CDTCHandler::MngTCAcceptation() {
 	pus_service1_tx_TM_1_1(&mTCHandler);
 
 }
-//TODO Complete ExecCtrl
+//TODO Complete ExecCtrl  HECHO
 CDTCExecCtrl CDTCHandler::GetExecCtrl() {
 
 	//Get TC type
@@ -68,6 +68,11 @@ CDTCExecCtrl CDTCHandler::GetExecCtrl() {
 		execCtrl.mExecCtrl = ExecCtrlBKGTC;
 		break;
 
+	case (5):
+			execCtrl.mExecCtrl = ExecCtrlHK_FDIRTC;
+			break;
+
+
 	default:
 
 		execCtrl.mExecCtrl = ExecCtrlPrioTC;
@@ -78,7 +83,7 @@ CDTCExecCtrl CDTCHandler::GetExecCtrl() {
 	return execCtrl;
 }
 //**************************************************************************
-//TODO Complete Exec_Type_TC according to defined ExecCtrl
+//TODO HECHO Complete Exec_Type_TC according to defined ExecCtrl
 //**************************************************************************
 
 void CDTCHandler::ExecPrioTC() {
@@ -150,6 +155,10 @@ void CDTCHandler::ExecHK_FDIRTC() {
 		case (3):
 			pus_service3_exec_tc(&mTCHandler);
 			break;
+
+		case (5):
+		pus_service5_exec_tc(&mTCHandler);
+		break;
 
 		default:
 			//No defined code for this TC. Design error

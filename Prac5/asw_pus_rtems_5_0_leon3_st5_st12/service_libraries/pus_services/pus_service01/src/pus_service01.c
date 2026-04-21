@@ -70,7 +70,7 @@ tc_accept_report_t pus_service1_tc_acceptation(tc_handler_t *ptc_handler) {
 		    uint8_t type=ptc_handler->tc_df_header.type;
 		    uint8_t subtype=ptc_handler->tc_df_header.subtype;
 
-		    //TODO Add TC[XX,YY] acceptation
+		    //TODO Add TC[XX,YY] acceptation  HECHO
 			switch (type) {
 			case (3):
 				switch (subtype) {
@@ -102,6 +102,16 @@ tc_accept_report_t pus_service1_tc_acceptation(tc_handler_t *ptc_handler) {
 
 					}
 					break;
+			case (5):
+					switch (subtype) {
+					case (5):
+					case (6):
+						break;
+					default:
+						accept_report.accept_status = TCAcceptationSubTypeError;
+
+					}
+										break;
 
 			default:
 				//TC is not accepted
