@@ -5,8 +5,8 @@
 0
 0
 [Modificado]
-1
-1
+0
+0
 0
 [Estructura]
 [Version Estructura]
@@ -17,32 +17,21 @@ NULL
  
 [FinParametro]
 [Stack]
-4
+1
 [FinStack]
 [Puertos]
-2
+1
 [Version Puerto]
 0
-HK_FDIRTimer
-0
-1
-1
-[Version Grafico Puerto]
-0
-65
-17
-EDROOMTimingSAP
-[Version Puerto]
-0
-HK_FDIRCtrl
+BKGExecCtrl
 0
 1
 0
 [Version Grafico Puerto]
 0
-28
+46
 4
-CPHK_FDIRCtrl
+CPBKGExecCtrl
 [FinPuertos]
 [ActoresComponente]
 0
@@ -51,7 +40,7 @@ CPHK_FDIRCtrl
 0
 [FinUniones]
 [NumTimers]
-2
+0
 [FinNumTimers]
 [NumMsgDef]
 10
@@ -74,12 +63,7 @@ v1
 1
 1
 [Eventos]
-1
-[Event]
-[Version]
-1
-EvTimerHK_FDIRTimer
-Timer
+0
 [Maquina de Estados]
 [Version Maquina de Estados]
 1
@@ -113,14 +97,14 @@ Ready
 [ObjetoGrafico]
 [Version Objeto Grafico]
 0
-226 279 327 153
+227 191 185 172
 [FinObjetoGrafico]
 [PuntosEleccion]
 0
 [Version PuntosEleccion]
 2
 [Transiciones]
-3
+2
 [Version Transicion]
 5
 Init
@@ -128,7 +112,7 @@ I
 OSubEstI
 Ready
 DSubEst
-FInitHK_FDIR();
+;
 [Trigger]
 EDROOMsl
 EDROOMStart
@@ -144,7 +128,7 @@ true
 [GraficoTransicion]
 [Version GraficoTransicion]
 0
-112 124 226 333 0
+121 116 227 221 0
 [FinGraficoTransicion]
 ExecTC
 Ready
@@ -153,36 +137,13 @@ Ready
 DSubEst
 ;
 [Trigger]
-HK_FDIRCtrl
-SHK_FDIR_TC
+BKGExecCtrl
+SBKGTC
 true
  
  
  
-FExecHK_FDIR_TC();
-;
- 
-0
-;
-[GraficoTransicion]
-[Version GraficoTransicion]
-0
-226 346 226 413 6
-[FinGraficoTransicion]
-DoHK_FDIR
-Ready
-OSubEst
-Ready
-DSubEst
-FDoHK_FDIR();
-[Trigger]
-HK_FDIRTimer
-EDROOMSignalTimeout
-true
- 
- 
- 
-;
+FExecBKGTC();
 ;
 ;
 0
@@ -190,62 +151,16 @@ true
 [GraficoTransicion]
 [Version GraficoTransicion]
 0
-273 432 505 432 5
+227 248 227 341 6
 [FinGraficoTransicion]
 [VariablesConstantes]
-1
-[Version VariYConst]
-0
-VNextTimeout
-Pr_Time
-
-Variable
 0
 [Metodos]
-3
+1
 [Version Metodos]
 21
-Inform
-FDoHK_FDIR()
-0
-0
-0
-0
-1
- 
-7
- 
-VNextTimeout+= Pr_Time(1,0); // Add X sec + Y microsec 
-time=VNextTimeout; 
- 
-pus_services_update_params();
-pus_service3_do_HK();
-pus_services_do_FDIR();
-[ServiceRequest]
-InformAt
-HK_FDIRTimer
-EDROOMSignalTimeout
-
-EDROOMprioNormal
 MsgDataHandler
-FExecHK_FDIR_TC()
-0
-0
-0
-0
-1
- 
-2
- 
-varSHK_FDIR_TC.ExecHK_FDIRTC();
-[ServiceRequest]
-Msg->data
-HK_FDIRCtrl
-SHK_FDIR_TC
-CDTCHandler
- 
-Inform
-FInitHK_FDIR()
+FExecBKGTC()
 0
 0
 0
@@ -254,17 +169,17 @@ FInitHK_FDIR()
  
 6
  
-time.GetTime(); // Get current monotonic time   
-time+=Pr_Time(1,0); // Add X sec + Y microsec    
-VNextTimeout=time;
- 
- 
+	
+varSBKGTC.ExecBKGTC();
+		
+	
+   
 [ServiceRequest]
-InformAt
-HK_FDIRTimer
-EDROOMSignalTimeout
+Msg->data
+BKGExecCtrl
+SBKGTC
+CDTCHandler
  
-EDROOMprioNormal
 [MaquinasSubEstados]
 0
 [FinMaquinasSubEstados]

@@ -213,19 +213,18 @@ FDoHK_FDIR()
 0
 1
  
-7
+6
  
 VNextTimeout+= Pr_Time(1,0); // Add X sec + Y microsec 
 time=VNextTimeout; 
  
 pus_services_update_params();
 pus_service3_do_HK();
-pus_services_do_FDIR();
 [ServiceRequest]
 InformAt
 HK_FDIRTimer
 EDROOMSignalTimeout
-
+ 
 EDROOMprioNormal
 MsgDataHandler
 FExecHK_FDIR_TC()
@@ -237,13 +236,13 @@ FExecHK_FDIR_TC()
  
 2
  
-varSHK_FDIR_TC.ExecHK_FDIRTC();
+varSHK_FDIR_TC.ExecTC();
 [ServiceRequest]
 Msg->data
 HK_FDIRCtrl
 SHK_FDIR_TC
 CDTCHandler
- 
+EDROOMprioNormal
 Inform
 FInitHK_FDIR()
 0
