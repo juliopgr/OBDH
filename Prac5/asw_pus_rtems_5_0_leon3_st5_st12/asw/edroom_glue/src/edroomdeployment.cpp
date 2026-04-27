@@ -64,34 +64,6 @@ void CEDROOMSystemCommSAP::SetComponents(UAH_ASW   *p_comp1,
 //*****************************************************************************
  
  
-TEDROOMSignal CEDROOMSystemCommSAP::C3HK_FDIRMng_PHK_FDIRCtrl__C2TCManager_PHK_FDIRCtrl(TEDROOMSignal signalOut){
- 
-	TEDROOMSignal signalIn;
- 
-	switch(signalOut){
- 
-		default: signalIn=(TEDROOMSignal)(-1); break;
- 
-	}
-	return signalIn;
- 
-}
- 
-TEDROOMSignal CEDROOMSystemCommSAP::C2TCManager_PHK_FDIRCtrl__C3HK_FDIRMng_PHK_FDIRCtrl(TEDROOMSignal signalOut){
- 
-	TEDROOMSignal signalIn;
- 
-	switch(signalOut){
- 
-		case( CCTCManager::SHK_FDIR_TC):	 signalIn=CCHK_FDIRMng::SHK_FDIR_TC; break;
- 
-		default: signalIn=(TEDROOMSignal)(-1); break;
- 
-	}
-	return signalIn;
- 
-}
- 
 TEDROOMSignal CEDROOMSystemCommSAP::C2TCManager_PBKGExecCtrl__C4BKGTCExec_PBKGExecCtrl(TEDROOMSignal signalOut){
  
 	TEDROOMSignal signalIn;
@@ -112,6 +84,34 @@ TEDROOMSignal CEDROOMSystemCommSAP::C4BKGTCExec_PBKGExecCtrl__C2TCManager_PBKGEx
 	TEDROOMSignal signalIn;
  
 	switch(signalOut){
+ 
+		default: signalIn=(TEDROOMSignal)(-1); break;
+ 
+	}
+	return signalIn;
+ 
+}
+ 
+TEDROOMSignal CEDROOMSystemCommSAP::C3HK_FDIRMng_PHK_FDIRCtrl__C2TCManager_PHK_FDIRCtrl(TEDROOMSignal signalOut){
+ 
+	TEDROOMSignal signalIn;
+ 
+	switch(signalOut){
+ 
+		default: signalIn=(TEDROOMSignal)(-1); break;
+ 
+	}
+	return signalIn;
+ 
+}
+ 
+TEDROOMSignal CEDROOMSystemCommSAP::C2TCManager_PHK_FDIRCtrl__C3HK_FDIRMng_PHK_FDIRCtrl(TEDROOMSignal signalOut){
+ 
+	TEDROOMSignal signalIn;
+ 
+	switch(signalOut){
+ 
+		case( CCTCManager::SHK_FDIR_TC):	 signalIn=CCHK_FDIRMng::SHK_FDIR_TC; break;
  
 		default: signalIn=(TEDROOMSignal)(-1); break;
  
@@ -150,13 +150,13 @@ void CEDROOMSystemCommSAP::RegisterInterfaces(){
  
 void CEDROOMSystemCommSAP::SetLocalConnections(){
  
-	m_localCommSAP.Connect(mp_comp3->HK_FDIRCtrl, mp_comp2->HK_FDIRCtrl, connections[0], 
-					C3HK_FDIRMng_PHK_FDIRCtrl__C2TCManager_PHK_FDIRCtrl, 
-					C2TCManager_PHK_FDIRCtrl__C3HK_FDIRMng_PHK_FDIRCtrl);
- 
-	m_localCommSAP.Connect(mp_comp2->BKGExecCtrl, mp_comp4->BKGExecCtrl, connections[1], 
+	m_localCommSAP.Connect(mp_comp2->BKGExecCtrl, mp_comp4->BKGExecCtrl, connections[0], 
 					C2TCManager_PBKGExecCtrl__C4BKGTCExec_PBKGExecCtrl, 
 					C4BKGTCExec_PBKGExecCtrl__C2TCManager_PBKGExecCtrl);
+ 
+	m_localCommSAP.Connect(mp_comp3->HK_FDIRCtrl, mp_comp2->HK_FDIRCtrl, connections[1], 
+					C3HK_FDIRMng_PHK_FDIRCtrl__C2TCManager_PHK_FDIRCtrl, 
+					C2TCManager_PHK_FDIRCtrl__C3HK_FDIRMng_PHK_FDIRCtrl);
  
 }
  

@@ -308,6 +308,16 @@ public:
 		/**
 		 * \brief  
 		 */
+		void	FExecRebootTC();
+
+		/**
+		 * \brief  
+		 */
+		void	FFwdBKGTC();
+
+		/**
+		 * \brief  
+		 */
 		void	FFwdHK_FDIRTC();
 
 		/**
@@ -348,27 +358,17 @@ public:
 		/**
 		 * \brief  
 		 */
+		bool	GFwdBKGTC();
+
+		/**
+		 * \brief  
+		 */
 		bool	GFwdToHK_FDIR();
 
 		/**
 		 * \brief  
 		 */
 		bool	GToReboot();
-
-		/**
-		 * \brief 
-		 */
-		bool	GFwdBKGTC();
-
-		/**
-		 * \brief 
-		 */
-		void	FFwdBKGTC();
-
-		/**
-		 * \brief 
-		 */
-		void	FExecRebootTC();
 
 	};
 

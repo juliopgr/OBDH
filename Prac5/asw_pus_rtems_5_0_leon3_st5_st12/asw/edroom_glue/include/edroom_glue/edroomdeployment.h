@@ -85,13 +85,13 @@ class CEDROOMSystemCommSAP{
  
 //Signal Conversion
  
-	static TEDROOMSignal C3HK_FDIRMng_PHK_FDIRCtrl__C2TCManager_PHK_FDIRCtrl(TEDROOMSignal signal);
-	static TEDROOMSignal C2TCManager_PHK_FDIRCtrl__C3HK_FDIRMng_PHK_FDIRCtrl(TEDROOMSignal signal);
+	static TEDROOMSignal C2TCManager_PBKGExecCtrl__C4BKGTCExec_PBKGExecCtrl(TEDROOMSignal signal);
+	static TEDROOMSignal C4BKGTCExec_PBKGExecCtrl__C2TCManager_PBKGExecCtrl(TEDROOMSignal signal);
  
 //Signal Conversion
  
-	static TEDROOMSignal C2TCManager_PBKGExecCtrl__C4BKGTCExec_PBKGExecCtrl(TEDROOMSignal signal);
-	static TEDROOMSignal C4BKGTCExec_PBKGExecCtrl__C2TCManager_PBKGExecCtrl(TEDROOMSignal signal);
+	static TEDROOMSignal C3HK_FDIRMng_PHK_FDIRCtrl__C2TCManager_PHK_FDIRCtrl(TEDROOMSignal signal);
+	static TEDROOMSignal C2TCManager_PHK_FDIRCtrl__C3HK_FDIRMng_PHK_FDIRCtrl(TEDROOMSignal signal);
  
  
 //!Register Interfaces
