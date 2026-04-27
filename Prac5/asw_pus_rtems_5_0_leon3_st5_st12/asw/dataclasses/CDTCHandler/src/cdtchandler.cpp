@@ -47,7 +47,7 @@ void CDTCHandler::MngTCAcceptation() {
 	pus_service1_tx_TM_1_1(&mTCHandler);
 
 }
-//TODO Complete ExecCtrl  HECHO
+//TODO DONE Complete ExecCtrl
 CDTCExecCtrl CDTCHandler::GetExecCtrl() {
 
 	//Get TC type
@@ -72,6 +72,11 @@ CDTCExecCtrl CDTCHandler::GetExecCtrl() {
 			execCtrl.mExecCtrl = ExecCtrlHK_FDIRTC;
 			break;
 
+	case (12):
+			execCtrl.mExecCtrl = ExecCtrlHK_FDIRTC;
+			break;
+
+
 
 	default:
 
@@ -83,7 +88,7 @@ CDTCExecCtrl CDTCHandler::GetExecCtrl() {
 	return execCtrl;
 }
 //**************************************************************************
-//TODO HECHO Complete Exec_Type_TC according to defined ExecCtrl
+//TODO DONE Complete Exec_Type_TC according to defined ExecCtrl
 //**************************************************************************
 
 void CDTCHandler::ExecPrioTC() {
@@ -158,6 +163,10 @@ void CDTCHandler::ExecHK_FDIRTC() {
 
 		case (5):
 		pus_service5_exec_tc(&mTCHandler);
+		break;
+
+		case (12):
+		pus_service12_exec_tc(&mTCHandler);
 		break;
 
 		default:

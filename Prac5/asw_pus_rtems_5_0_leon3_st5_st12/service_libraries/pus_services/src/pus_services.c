@@ -31,6 +31,8 @@
 #include "public/sc_channel_drv_v1.h"
 #include "public/adc_drv.h"
 #include "public/watchdog_drv.h"
+#include "public/pus_service12.h"
+
 
 void pus_services_startup(void * irq_interface) {
 
@@ -41,7 +43,9 @@ void pus_services_startup(void * irq_interface) {
 
 	init_adc_channel();
 
+	pus_service1_tx_TM_5_1_start_up();
 	
+	pus_service12_startup();
 }
 
 void pus_services_mng_reboot(){
@@ -49,17 +53,91 @@ void pus_services_mng_reboot(){
 
 	watchdog_drv_disable_signal();
 }
-
+// #####################   ESTA ES LA PARTE FDIR NO HK POR ESO EVENTOS POR SI HAY FALLOS ###############################
 void pus_services_do_FDIR() {
 
 	//Fault_Detection
+	//From each PMONID
+	uint16_t number_of_PMONs;
 
+	number_of_PMONs = pus_service12_get_PMON_COUNT();
+
+	for (uint16_t i = 0; i < number_of_PMONs; i++) {
+
+		if (pus_service12_is_PMON_enabled(i)) {
+
+			monitor_type_t type;
+
+			bool_t event_triggered=false;
+			bool_t event_enabled=false;
+			uint16_t EvID;
+
+			type=pus_service12_get_PMON_type(i);
+
+			switch (type) {
+			case (MonitorCheckTypeLimits): {
+
+				param_out_of_limits_info_t fault_info;
+
+				//Event Triggered?
+				event_triggered=pus_service12_do_param_limits_monitoring(i,
+						&EvID,
+						&fault_info);
+				if (event_triggered) {
+
+					event_enabled=pus_service5_is_EvID_enabled(EvID);
+
+					if (event_enabled) {
+
+						pus_service1_tx_TM_5_X_param_out_of_limit(EvID,
+								&fault_info);
+
+
+					}
+				}
+			}
+				break;
+			case (MonitorCheckTypeExpectedValue): {
+
+				uint16_t EvID;
+				param_value_fault_info_t fault_info;
+
+				event_triggered=pus_service12_do_param_check_value_monitoring(i, &EvID,
+						&fault_info);
+
+				//Event Triggered?
+				if (event_triggered) {
+
+					//TODO DONE event_enabled =Check If TM[5,X] is enabled
+					event_enabled=pus_service5_is_EvID_enabled(EvID);
+
+					if (event_enabled) {
+
+						pus_service1_tx_TM_5_X_param_check_value_fail(EvID,
+								&fault_info);
+
+
+					}
+				}
+			}
+				break;
+			default:
+				//do nothing
+				break;
+
+			}
+			//If event triggered && event enabled mng event action
+
+			//if(event_triggered && event_enabled)
+				//pus_service19_mng_event_action(EvID);
+		}
+	}
 }
 
 void pus_services_update_params(){
 
 	//Do asw_update_sys_data_pool
-	//sample_sys_data_pool_params();
+	sample_sys_data_pool_params();
 
 }
 

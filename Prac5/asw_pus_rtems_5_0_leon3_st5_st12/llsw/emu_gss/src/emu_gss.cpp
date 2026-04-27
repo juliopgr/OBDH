@@ -46,7 +46,7 @@ void EmuGSS_ShowTM(const struct tm_mem_descriptor *pTMDescriptor) {
 
 	switch (tm_type) {
 
-	//TODO Add ShowServ_X_TM for the new services
+	//TODO DONE Add ShowServ_X_TM for the new services
 
 	case (1):
 
@@ -61,14 +61,14 @@ void EmuGSS_ShowTM(const struct tm_mem_descriptor *pTMDescriptor) {
 	case (4):
 		EmuGSS_ShowServ4TM(pTMDescriptor);
 		break;
-
+*/
 	case (5):
 		EmuGSS_ShowServ5TM(pTMDescriptor);
 				break;
 	case (12):
 		EmuGSS_ShowServ12TM(pTMDescriptor);
 			break;
-*/
+
 	case (20):
 		EmuGSS_ShowServ20TM(pTMDescriptor);
 				break;

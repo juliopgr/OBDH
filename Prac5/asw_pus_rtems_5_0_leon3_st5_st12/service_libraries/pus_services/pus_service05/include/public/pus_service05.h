@@ -52,7 +52,7 @@ extern "C" {
 //#define PUS_5_HighSeverityAnomalyEvents 	5
 
 //High Severity Anomaly EvIDs 0x4001,0x4002,0x4003
-//TODO Set number of TM[5,4] events to 3    HECHO
+//TODO DONE Set number of TM[5,4] events to 3
 #define PUS_5_HighSeverityAnomalyEvents 3
 
 

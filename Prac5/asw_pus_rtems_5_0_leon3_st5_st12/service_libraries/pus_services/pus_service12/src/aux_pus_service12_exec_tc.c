@@ -72,6 +72,9 @@ void pus_service12_exec_TC_12_1(tc_handler_t *ptc_handler) {
 		if (PMONID < PUS_SERVICE12_MAX_NUM_OF_PMONS) {
 
 			//Cannot enable it if it is not in the monitor list (is undefined)
+
+//#######################################    Monitor free es INdefinido    #########################################
+
 			if (Param_Monitor_Config[PMONID].type != MonitorFree) {
 
 				pus_service1_tx_TM_1_3(ptc_handler);
@@ -104,9 +107,11 @@ void pus_service12_exec_TC_12_2(tc_handler_t *ptc_handler) {
 	uint8_t N;
 	uint16_t PMONID;
 
-	//TODO Get N & PMONID FIELD FROM TC
+	//TODO DONE Get N & PMONID FIELD FROM TC
 	// TC -> N
+		error = tc_handler_get_uint8_appdata_field(ptc_handler, &N);
 	// TC -> PMONID
+		error += tc_handler_get_uint16_appdata_field(ptc_handler, &PMONID);
 
 	// Handle error
 	if (error) {
@@ -136,12 +141,14 @@ void pus_service12_exec_TC_12_2(tc_handler_t *ptc_handler) {
 
 			} else {
 
-				//TODO Report TM[1,4] PMONID Undefined
+				//TODO DONE Report TM[1,4] PMONID Undefined
+				pus_service1_tx_TM_1_4_PMON_undefined(ptc_handler, PMONID);
 			}
 
 		} else {
 
-			//TODO Report TM[1,4] PMONID Invalid
+			//TODO DONE Report TM[1,4] PMONID Invalid
+			pus_service1_tx_TM_1_4_PMONID_invalid(ptc_handler, PMONID);
 		}
 	}
 
