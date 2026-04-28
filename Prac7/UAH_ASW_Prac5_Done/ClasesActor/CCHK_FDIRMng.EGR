@@ -62,7 +62,12 @@ CPHK_FDIRCtrl
 3
 0
 [Pools]
+1
+[Version PoolDatosMens]
 0
+EDROOMPoolCDEvAction
+CDEvAction
+10
 [Modulos]
 1
 [Version Modulo]
@@ -113,12 +118,59 @@ Ready
 [ObjetoGrafico]
 [Version Objeto Grafico]
 0
-226 279 327 153
+226 279 128 242
 [FinObjetoGrafico]
 [PuntosEleccion]
-0
+1
 [Version PuntosEleccion]
 2
+DoHK_FDIR
+0
+[ObjetoGrafico]
+[Version Objeto Grafico]
+0
+633 343 35 35
+[FinObjetoGrafico]
+DoHK_FDIR
+0
+[Ramas]
+2
+[Version Ramas]
+5
+PendingEvAction
+GPendingEvAction()
+Ready
+DSubEst
+;
+
+ 
+
+;
+FFwdEvAction();
+;
+;
+[GraficoRama]
+[Version GraficoRama]
+0
+633 360 354 384 2
+[FinGraficoRama]
+NoEvAction
+true
+Ready
+DSubEst
+;
+
+ 
+
+;
+;
+;
+;
+[GraficoRama]
+[Version GraficoRama]
+0
+634 352 354 313 3
+[FinGraficoRama]
 [Transiciones]
 3
 [Version Transicion]
@@ -144,7 +196,7 @@ true
 [GraficoTransicion]
 [Version GraficoTransicion]
 0
-112 124 226 333 0
+112 124 226 364 0
 [FinGraficoTransicion]
 ExecTC
 Ready
@@ -161,19 +213,19 @@ true
  
 FExecHK_FDIR_TC();
 ;
-
+ 
 0
 ;
 [GraficoTransicion]
 [Version GraficoTransicion]
 0
-226 346 226 413 6
+226 384 226 490 6
 [FinGraficoTransicion]
 DoHK_FDIR
 Ready
 OSubEst
-Ready
-DSubEst
+DoHK_FDIR
+DPEleccion
 FDoHK_FDIR();
 [Trigger]
 HK_FDIRTimer
@@ -190,7 +242,7 @@ true
 [GraficoTransicion]
 [Version GraficoTransicion]
 0
-273 432 505 432 5
+354 478 636 370 1
 [FinGraficoTransicion]
 [VariablesConstantes]
 1
@@ -202,7 +254,7 @@ Pr_Time
 Variable
 0
 [Metodos]
-3
+5
 [Version Metodos]
 21
 Inform
@@ -219,9 +271,9 @@ VNextTimeout+= Pr_Time(1,0); // Add X sec + Y microsec
 time=VNextTimeout; 
  
 pus_services_update_params();
-pus_service4_update_all_stats();
 pus_service3_do_HK();
 pus_services_do_FDIR();
+
 [ServiceRequest]
 InformAt
 HK_FDIRTimer
@@ -265,6 +317,35 @@ InformAt
 HK_FDIRTimer
 EDROOMSignalTimeout
  
+EDROOMprioNormal
+Guard
+GPendingEvAction()
+0
+0
+0
+0
+1
+
+1
+return (pus_service19_pending_ev_actions());
+SendMsg
+FFwdEvAction()
+0
+0
+0
+0
+1
+
+4
+	
+		// Complete Data 
+	
+	 pSEvAction_Data->ExtractEvActionFromQueue();
+[ServiceRequest]
+send
+HK_FDIRCtrl
+SEvAction
+CDEvAction
 EDROOMprioNormal
 [MaquinasSubEstados]
 0
