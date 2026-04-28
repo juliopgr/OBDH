@@ -108,7 +108,7 @@ void pus_services_do_FDIR() {
 				//Event Triggered?
 				if (event_triggered) {
 
-					//TODO DONE event_enabled =Check If TM[5,X] is enabled
+					// DONE event_enabled =Check If TM[5,X] is enabled
 					event_enabled=pus_service5_is_EvID_enabled(EvID);
 
 					if (event_enabled) {
@@ -133,6 +133,7 @@ void pus_services_do_FDIR() {
 		}
 	}
 }
+//####################################################       MIRAR DONDE ESTA EL DOHK        ####################################################
 
 void pus_services_update_params(){
 
