@@ -75,7 +75,7 @@ time=VNextTimeout;
 pus_services_update_params();
 pus_service3_do_HK();
 pus_services_do_FDIR();
-
+ 
    //Program absolute timer 
    HK_FDIRTimer.InformAt( time ); 
 }
@@ -90,6 +90,21 @@ void	CCHK_FDIRMng::EDROOM_CTX_Top_0::FExecHK_FDIR_TC()
  
 varSHK_FDIR_TC.ExecHK_FDIRTC();
 
+}
+
+
+
+void	CCHK_FDIRMng::EDROOM_CTX_Top_0::FFwdEvAction()
+
+{
+   //Allocate data from pool
+  CDEvAction * pSEvAction_Data = EDROOMPoolCDEvAction.AllocData();
+	
+		// Complete Data 
+	
+	 pSEvAction_Data->ExtractEvActionFromQueue();
+   //Send message 
+   HK_FDIRCtrl.send(SEvAction,pSEvAction_Data,&EDROOMPoolCDEvAction); 
 }
 
 
@@ -117,21 +132,6 @@ bool	CCHK_FDIRMng::EDROOM_CTX_Top_0::GPendingEvAction()
 
 return (pus_service19_pending_ev_actions());
 
-}
-
-
-
-void	CCHK_FDIRMng::EDROOM_CTX_Top_0::FFwdEvAction()
-
-{
-   //Allocate data from pool
-  CDEvAction * pSEvAction_Data = EDROOMPoolCDEvAction.AllocData();
-	
-		// Complete Data 
-	
-	 pSEvAction_Data->ExtractEvActionFromQueue();
-   //Send message 
-   HK_FDIRCtrl.send(SEvAction,pSEvAction_Data,&EDROOMPoolCDEvAction); 
 }
 
 

@@ -276,17 +276,17 @@ public:
 		/**
 		 * \brief  
 		 */
+		void	FFwdEvAction();
+
+		/**
+		 * \brief  
+		 */
 		void	FInitHK_FDIR();
 
 		/**
-		 * \brief 
+		 * \brief  
 		 */
 		bool	GPendingEvAction();
-
-		/**
-		 * \brief 
-		 */
-		void	FFwdEvAction();
 
 	};
 
