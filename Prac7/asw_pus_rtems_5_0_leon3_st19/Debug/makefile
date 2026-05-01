@@ -14,10 +14,12 @@ RM := rm -rf
 -include service_libraries/pus_services/pus_tc_handler/src/subdir.mk
 -include service_libraries/pus_services/pus_sys_data_pool/src/subdir.mk
 -include service_libraries/pus_services/pus_service20/src/subdir.mk
+-include service_libraries/pus_services/pus_service19/src/subdir.mk
 -include service_libraries/pus_services/pus_service17/src/subdir.mk
 -include service_libraries/pus_services/pus_service12/src/subdir.mk
 -include service_libraries/pus_services/pus_service05/src/subdir.mk
 -include service_libraries/pus_services/pus_service03/src/subdir.mk
+-include service_libraries/pus_services/pus_service02/src/subdir.mk
 -include service_libraries/pus_services/pus_service01/src/subdir.mk
 -include service_libraries/emu_tc_programming/src/subdir.mk
 -include service_libraries/edroomsl/edroomsl_types/src/subdir.mk
@@ -74,7 +76,7 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := asw_pus_rtems_5_0_leon3_st5_st12
+BUILD_ARTIFACT_NAME := asw_pus_rtems_5_0_leon3_st19
 BUILD_ARTIFACT_EXTENSION :=
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
@@ -85,19 +87,19 @@ BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ART
 all: main-build
 
 # Main-build Target
-main-build: asw_pus_rtems_5_0_leon3_st5_st12
+main-build: asw_pus_rtems_5_0_leon3_st19
 
 # Tool invocations
-asw_pus_rtems_5_0_leon3_st5_st12: $(OBJS) $(USER_OBJS) makefile $(OPTIONAL_TOOL_DEPS)
+asw_pus_rtems_5_0_leon3_st19: $(OBJS) $(USER_OBJS) makefile $(OPTIONAL_TOOL_DEPS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: Cross G++ Linker'
-	sparc-gaisler-rtems5-g++ -mcpu=leon3 -qbsp=leon3 -msoft-float -o "asw_pus_rtems_5_0_leon3_st5_st12" $(OBJS) $(USER_OBJS) $(LIBS)
+	sparc-gaisler-rtems5-g++ -mcpu=leon3 -qbsp=leon3 -msoft-float -o "asw_pus_rtems_5_0_leon3_st19" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) asw_pus_rtems_5_0_leon3_st5_st12
+	-$(RM) asw_pus_rtems_5_0_leon3_st19
 	-@echo ' '
 
 .PHONY: all clean dependents main-build

@@ -108,7 +108,7 @@ void pus_services_do_FDIR() {
 				//Event Triggered?
 				if (event_triggered) {
 
-					//TODO DONE event_enabled =Check If TM[5,X] is enabled
+					// DONE event_enabled =Check If TM[5,X] is enabled
 					event_enabled=pus_service5_is_EvID_enabled(EvID);
 
 					if (event_enabled) {
@@ -128,8 +128,9 @@ void pus_services_do_FDIR() {
 			}
 			//If event triggered && event enabled mng event action
 
-			//if(event_triggered && event_enabled)
-				//pus_service19_mng_event_action(EvID);
+			//Se ha descomentado   LLAMA AL SERVICIO 19 PARA HACER UNA POSIBLE ACCION RECUPERADORA ASOCIADA AL EVENTO
+			if(event_triggered && event_enabled)
+				pus_service19_mng_event_action(EvID);
 		}
 	}
 }

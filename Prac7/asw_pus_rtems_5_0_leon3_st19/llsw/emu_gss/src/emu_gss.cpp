@@ -47,6 +47,7 @@ void EmuGSS_ShowTM(const struct tm_mem_descriptor *pTMDescriptor) {
 	switch (tm_type) {
 
 	//TODO DONE Add ShowServ_X_TM for the new services
+	// ESTO ES PARA LAS QUE GENERAN TELEMETRIAS
 
 	case (1):
 

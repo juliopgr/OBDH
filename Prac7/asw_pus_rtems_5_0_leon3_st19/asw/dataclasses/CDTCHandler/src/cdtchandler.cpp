@@ -76,6 +76,15 @@ CDTCExecCtrl CDTCHandler::GetExecCtrl() {
 			execCtrl.mExecCtrl = ExecCtrlHK_FDIRTC;
 			break;
 
+	case (19):
+			execCtrl.mExecCtrl = ExecCtrlHK_FDIRTC;
+			break;
+
+	case (2):
+			execCtrl.mExecCtrl = ExecCtrlPrioTC;
+			break;
+
+
 
 
 	default:
@@ -105,6 +114,10 @@ void CDTCHandler::ExecPrioTC() {
 
 		case (17):
 			pus_service17_exec_tc(&mTCHandler);
+			break;
+
+		case (2):
+			pus_service2_exec_tc(&mTCHandler);
 			break;
 
 		default:
@@ -167,6 +180,10 @@ void CDTCHandler::ExecHK_FDIRTC() {
 
 		case (12):
 		pus_service12_exec_tc(&mTCHandler);
+		break;
+
+		case (19):
+		pus_service19_exec_tc(&mTCHandler);
 		break;
 
 		default:

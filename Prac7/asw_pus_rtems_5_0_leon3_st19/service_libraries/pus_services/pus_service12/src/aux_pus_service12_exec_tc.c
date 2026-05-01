@@ -107,7 +107,7 @@ void pus_service12_exec_TC_12_2(tc_handler_t *ptc_handler) {
 	uint8_t N;
 	uint16_t PMONID;
 
-	//TODO DONE Get N & PMONID FIELD FROM TC
+	// DONE Get N & PMONID FIELD FROM TC
 	// TC -> N
 		error = tc_handler_get_uint8_appdata_field(ptc_handler, &N);
 	// TC -> PMONID
@@ -141,13 +141,13 @@ void pus_service12_exec_TC_12_2(tc_handler_t *ptc_handler) {
 
 			} else {
 
-				//TODO DONE Report TM[1,4] PMONID Undefined
+				// DONE Report TM[1,4] PMONID Undefined
 				pus_service1_tx_TM_1_4_PMON_undefined(ptc_handler, PMONID);
 			}
 
 		} else {
 
-			//TODO DONE Report TM[1,4] PMONID Invalid
+			// DONE Report TM[1,4] PMONID Invalid
 			pus_service1_tx_TM_1_4_PMONID_invalid(ptc_handler, PMONID);
 		}
 	}

@@ -30,14 +30,14 @@
 
 #define OBT_START_FT_ST05_12 (OBT_AFTER_POWER_ON )
 
-#define FT_UAH_ASW_ICU_SERVS_5_12_Limits_Monitoring_0080
+//#define FT_UAH_ASW_ICU_SERVS_5_12_Limits_Monitoring_0080
 
 //#define FT_UAH_ASW_ICU_SERVS_5_12_EvDisabled_0090
 //#define FT_UAH_ASW_ICU_SERVS_5_12_MonMaskedValue_0100
 
 
 
-//TODO DONE Complete FT_UAH_ASW_ICU_SERVS_5_12_Limits_Monitoring_0080 and check log with expected log
+// DONE Complete FT_UAH_ASW_ICU_SERVS_5_12_Limits_Monitoring_0080 and check log with expected log
 #ifdef FT_UAH_ASW_ICU_SERVS_5_12_Limits_Monitoring_0080
 
 #define FT_0080_TIME_step0 (OBT_START_FT_ST05_12 + 3)
@@ -69,7 +69,7 @@ EmuGSS_TCProgram20_3_uint8 prog_FT_0080_step_5(FT_0080_TIME_step5,
 
 #endif
 
-//TODO DONE CREATE TEST FT_UAH_ASW_ICU_SERVS_5_12_EvDisabled_0090
+// DONE CREATE TEST FT_UAH_ASW_ICU_SERVS_5_12_EvDisabled_0090
 //Same steps than FT_UAH_ASW_ICU_SERVS_5_12_Limits_Monitoring_0080 but use
 //EmuGSS_TCProgram5_6 to disable event 0x4002 at OBT_START_FT_ST05_12 + 12
 
@@ -115,7 +115,7 @@ EmuGSS_TCProgram20_3_uint8 prog_FT_0090_step_6(FT_0090_TIME_step6,
 
 #endif
 
-//TODO DONE CREATE TEST FT_UAH_ASW_ICU_SERVS_5_12_MonMaskedValue_0100
+// DONE CREATE TEST FT_UAH_ASW_ICU_SERVS_5_12_MonMaskedValue_0100
 
 /* Use EmuGSS_TCProgram12_5_Value_UINT8 class to monitor Param 16
  * with a mask = 0x0F and expected value 0x03.
