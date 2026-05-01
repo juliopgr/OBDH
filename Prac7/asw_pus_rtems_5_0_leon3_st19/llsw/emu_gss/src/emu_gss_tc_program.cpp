@@ -99,7 +99,7 @@ void EmuGSS_TCProgram::NewProgram(EmuGSS_TCProgram *pTCProgram) {
 			}
 		}
 	}
-}
+} // Sobreescritura de métodos con el mismo nombre de la clase padre dentro de las clases hijas
 
 void EmuGSS_TCProgram::BuildTC(tc_mem_descriptor_t &tc_descriptor) {
 
