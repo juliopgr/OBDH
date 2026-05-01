@@ -53,7 +53,7 @@ EmuGSS_TCProgram19_1_Action_2_1 prog_FT_0110_step_2(FT_0110_TIME_step2,
 					"FT_UAH_ASW_Event_Action_0110 step 1, 0x4002 Action is Device  Off",
 					0x4002, DeviceCommandOff);
 
-//TODO Complete Test in order to force the DeviceCommandOff execution
+//TODO DONE Complete Test in order to force the DeviceCommandOff execution
 //as recovery action After step 5.
 
 EmuGSS_TCProgram19_4 prog_FT_0110_step3(FT_0110_TIME_step3,
