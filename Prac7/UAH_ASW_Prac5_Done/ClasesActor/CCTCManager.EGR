@@ -479,6 +479,25 @@ SHK_FDIR_TC
 CDTCHandler
 EDROOMprioNormal
 MsgDataHandler
+FGetEvAction()
+0
+0
+0
+0
+1
+ 
+4
+	
+		
+	
+	VCurrentTC=varSEvAction.GetActionTCHandler();
+[ServiceRequest]
+Msg->data
+HK_FDIRCtrl
+SEvAction
+CDEvAction
+ 
+MsgDataHandler
 FGetTC()
 0
 0
@@ -601,25 +620,6 @@ GToReboot()
  
 1
 return VTCExecCtrl.IsRebootTC();
-MsgDataHandler
-FGetEvAction()
-0
-0
-0
-0
-1
-
-4
-	
-		
-	
-	VCurrentTC=varSEvAction.GetActionTCHandler();
-[ServiceRequest]
-Msg->data
-HK_FDIRCtrl
-SEvAction
-CDEvAction
-
 [MaquinasSubEstados]
 0
 [FinMaquinasSubEstados]

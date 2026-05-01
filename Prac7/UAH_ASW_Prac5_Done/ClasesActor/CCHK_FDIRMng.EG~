@@ -142,9 +142,9 @@ GPendingEvAction()
 Ready
 DSubEst
 ;
-
  
-
+ 
+ 
 ;
 FFwdEvAction();
 ;
@@ -159,9 +159,9 @@ true
 Ready
 DSubEst
 ;
-
  
-
+ 
+ 
 ;
 ;
 ;
@@ -273,7 +273,7 @@ time=VNextTimeout;
 pus_services_update_params();
 pus_service3_do_HK();
 pus_services_do_FDIR();
-
+ 
 [ServiceRequest]
 InformAt
 HK_FDIRTimer
@@ -297,6 +297,25 @@ HK_FDIRCtrl
 SHK_FDIR_TC
 CDTCHandler
  
+SendMsg
+FFwdEvAction()
+0
+0
+0
+0
+1
+ 
+4
+	
+		// Complete Data 
+	
+	 pSEvAction_Data->ExtractEvActionFromQueue();
+[ServiceRequest]
+send
+HK_FDIRCtrl
+SEvAction
+CDEvAction
+EDROOMprioNormal
 Inform
 FInitHK_FDIR()
 0
@@ -325,28 +344,9 @@ GPendingEvAction()
 0
 0
 1
-
+ 
 1
 return (pus_service19_pending_ev_actions());
-SendMsg
-FFwdEvAction()
-0
-0
-0
-0
-1
-
-4
-	
-		// Complete Data 
-	
-	 pSEvAction_Data->ExtractEvActionFromQueue();
-[ServiceRequest]
-send
-HK_FDIRCtrl
-SEvAction
-CDEvAction
-EDROOMprioNormal
 [MaquinasSubEstados]
 0
 [FinMaquinasSubEstados]
